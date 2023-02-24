@@ -16,13 +16,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity(prePostEnabled = true, securedEnabled = true,jsr250Enabled = true)
 public class SecurityConfig {
 
-//	@Bean
-//	public UserDetailsService userDetailsService(BCryptPasswordEncoder bCryptPasswordEncoder) {
-//		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-//		manager.createUser(User.withUsername("admin").password(bCryptPasswordEncoder.encode("admin")).roles("ADMIN").build());
-//		manager.createUser(User.withUsername("user").password(bCryptPasswordEncoder.encode("user")).roles("U").build());
-//		return manager;
-//	}
 	
 	@Bean
 	public UserDetailsService userDetailsService(BCryptPasswordEncoder bCryptPasswordEncoder) {
