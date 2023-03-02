@@ -11,11 +11,18 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table
 @Data
+@Builder(toBuilder = true)
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
 public class AppUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,11 +31,11 @@ public class AppUser {
 	@ManyToMany(fetch = FetchType.EAGER)
 	List<AppRole> list = new ArrayList<>();
 
-	public AppUser(String username) {
-		this.username = username;
-	}
-	public AppUser() {
-		// TODO Auto-generated constructor stub
-	}
+//	public AppUser(String username) {
+//		this.username = username;
+//	}
+//	public AppUser() {
+//		// TODO Auto-generated constructor stub
+//	}
 
 }

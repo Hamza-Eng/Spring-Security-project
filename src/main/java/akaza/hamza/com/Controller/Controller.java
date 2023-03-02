@@ -18,6 +18,7 @@ import akaza.hamza.com.service.AppUserService;
 @CrossOrigin
 @RequestMapping("/api")
 public class Controller {
+	
 	private AppRoleService roleService;
 	private AppUserService userService;
 	AppRoleRepository roleRepository;
@@ -47,20 +48,30 @@ public class Controller {
 	@GetMapping("/ping")
 	private ResponseEntity<String>  ping() {
 		return new ResponseEntity<String>("ping pong",HttpStatus.OK);
+		
 //		System.out.println("hello from hamza");
 	}
 
 	@GetMapping("/user")
 	@PreAuthorize("hasRole('USER')")
 	private String UserPart() {
-		System.out.println("hello from hamza");
+		System.out.println("ping pong from user section");
 		return "ping pong from user section";
 	}
+	
+	
+	@GetMapping("/root")
+	@PreAuthorize("hasRole('ROOT')")
+	private String RootPart() {
+		System.out.println("ping pong from root section");
+		return "ping pong from root section";
+	}
+
 
 	@GetMapping("/admin")
 	@PreAuthorize("hasRole('ADMIN')")
 	private String AdminPart() {
-		System.out.println("hello from hamza");
+		System.out.println("ping pong from admin section");
 		return "ping pong from admin section";
 	}
 }

@@ -16,7 +16,7 @@ public class AppRoleService {
 	}
 
 	public void addRole(String name) {
-		AppRole role=new AppRole(name);
+		AppRole role=AppRole.builder().name(name).build();
 		this.repo.save(role);
 		
 	}

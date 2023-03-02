@@ -20,13 +20,14 @@ public class SpringSecurityApplication {
 	}
 
 	@Bean
-	CommandLineRunner start(AppRoleService roleService, AppUserService userService,AppRoleRepository appRoleRepository,AppUSerRepository appUSerRepository) {
+	CommandLineRunner start(AppRoleService roleService, AppUserService userService, AppRoleRepository appRoleRepository,
+			AppUSerRepository appUSerRepository) {
 		return args -> {
 
-			userService.createOrUpdate(new AppUser("hamza"));
-			userService.createOrUpdate(new AppUser("salah"));
-			userService.createOrUpdate(new AppUser("mohamed"));
-			userService.createOrUpdate(new AppUser("youssef"));
+			userService.createOrUpdate(AppUser.builder().username("hamza").build());
+			userService.createOrUpdate(AppUser.builder().username("salah").build());
+			userService.createOrUpdate(AppUser.builder().username("mohamed").build());
+			userService.createOrUpdate(AppUser.builder().username("youssef").build());
 
 			roleService.addRole("ADMIN");
 			roleService.addRole("USER");
@@ -50,6 +51,5 @@ public class SpringSecurityApplication {
 //		System.out.println("hello from hamza");
 //		
 //	}
-
 
 }
